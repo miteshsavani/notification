@@ -1,2 +1,5 @@
-*React application*
-- Notification on button click
+React project
+
+Notification on button click.
+
+Preview: https://notification-two-liart.vercel.app

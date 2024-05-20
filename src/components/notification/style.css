@@ -1,0 +1,41 @@
+.notification {
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 20px;
+    min-width: 250px;
+    top: 100vh;
+}
+
+.closeIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.success {
+    background-color: green;
+}
+
+.error {
+    background-color: red;
+}
+
+.warning {
+    background-color: blue;
+}
+
+.info {
+    background-color: orange;
+}
+
+.progressBar {
+    height: 4px;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: white;
+    transition: width 2s;
+}
