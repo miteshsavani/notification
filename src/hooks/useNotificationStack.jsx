@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Notification from '../components/notification';
 import { v4 as uuidv4 } from 'uuid';
 
-const useNotificationStack = ({ position, duration = 5000 } = {}) => {
+const useNotificationStack = ({ position, duration = 2500 } = {}) => {
 	const [notifications, setNotifications] = useState([]);
 
 	const timer = useRef(null);

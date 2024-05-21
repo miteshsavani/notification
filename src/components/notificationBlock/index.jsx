@@ -1,11 +1,77 @@
 import { useCallback } from 'react';
+import { useGetAnimation } from '../../context';
 import useNotificationStack from '../../hooks/useNotificationStack';
-import "./style.css";
+import './style.css';
+
+const notificationContainerStyle = {
+	animation1: {
+		'top-left': { 'flexDirection': 'column', top: '10px', left: '10px' },
+		'bottom-left': {
+			'flexDirection': 'column-reverse',
+			bottom: '10px',
+			left: '10px',
+		},
+		'top-right': { 'flexDirection': 'column', top: '10px', right: '10px' },
+		'bottom-right': {
+			'flexDirection': 'column-reverse',
+			bottom: '10px',
+			right: '10px',
+		},
+	},
+	animation2: {
+		'top-left': { 'flexDirection': 'column', top: '10px', left: '10px' },
+		'bottom-left': {
+			'flexDirection': 'column-reverse',
+			bottom: '10px',
+			left: '10px',
+		},
+		'top-right': { 'flexDirection': 'column', top: '10px', right: '10px' },
+		'bottom-right': {
+			'flexDirection': 'column-reverse',
+			bottom: '10px',
+			right: '10px',
+		},
+	},
+	animation3: {
+		'top-left': { 'flexDirection': 'column', top: '10px', left: '10px' },
+		'bottom-left': {
+			'flexDirection': 'column-reverse',
+			bottom: '10px',
+			left: '10px',
+		},
+		'top-right': { 'flexDirection': 'column', top: '10px', right: '10px' },
+		'bottom-right': {
+			'flexDirection': 'column-reverse',
+			bottom: '10px',
+			right: '10px',
+		},
+	},
+	animation4: {
+		'top-left': {
+			'flexDirection': 'column-reverse',
+			top: '10px',
+			left: '10px',
+		},
+		'bottom-left': { 'flexDirection': 'column', bottom: '10px', left: '10px' },
+		'top-right': {
+			'flexDirection': 'column-reverse',
+			top: '10px',
+			right: '10px',
+		},
+		'bottom-right': {
+			'flexDirection': 'column',
+			bottom: '10px',
+			right: '10px',
+		},
+	},
+};
 
 const NotificationBlock = ({ position }) => {
 	const [notifications, triggerNotification] = useNotificationStack({
 		position,
 	});
+
+	const { animationStyle } = useGetAnimation();
 
 	const showSuccessMessage = useCallback(() => {
 		triggerNotification({
@@ -36,9 +102,17 @@ const NotificationBlock = ({ position }) => {
 	}, [triggerNotification]);
 
 	return (
-		<div className='notificationBlock'>
-			<div className={`notificationContainer ${position}`}>{notifications}</div>
-			<p>Show Notifications on {String(position).replace('-', ' ').toLocaleUpperCase()} corner</p>
+		<div className="notificationBlock">
+			<div
+				className="notificationContainer"
+				style={{ ...notificationContainerStyle[animationStyle][position] }}
+			>
+				{notifications}
+			</div>
+			<p>
+				Show Notifications on{' '}
+				{String(position).replace('-', ' ').toLocaleUpperCase()} corner
+			</p>
 			<div className="block">
 				<button className="button" onClick={showSuccessMessage}>
 					Show Success

@@ -5,7 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { AiFillWarning } from 'react-icons/ai';
 import { AiFillInfoCircle } from 'react-icons/ai';
 import { AiOutlineMinusCircle } from 'react-icons/ai';
-import { useAppContext } from '../../context';
+import { useGetAnimation } from '../../context';
 
 import './style.css';
 
@@ -36,10 +36,10 @@ const noticationMountStyle = {
 		'bottom-right': { opacity: 0 },
 	},
 	animation4: {
-		'top-left': { top: '100vh' },
-		'bottom-left': { bottom: '100vh' },
-		'top-right': { top: '100vh' },
-		'bottom-right': { bottom: '100vh' },
+		'top-left': { top: '-10vh', left: '10px' },
+		'bottom-left': { bottom: '-10vh', left: '10px' },
+		'top-right': { top: '-10vh', right: '10px' },
+		'bottom-right': { bottom: '-10vh', right: '10px' },
 	},
 };
 
@@ -94,10 +94,10 @@ const notificationStyle = {
 			'bottom-right': { bottom: '0px' },
 		},
 		whenNotVisible: {
-			'top-left': { top: '-500px' },
-			'bottom-left': { bottom: '-500px' },
-			'top-right': { top: '-500px' },
-			'bottom-right': { bottom: '-500px' },
+			'top-left': { left: '-500px' },
+			'bottom-left': { left: '-500px', bottom: '-30px' },
+			'top-right': { right: '-500px' },
+			'bottom-right': { right: '-500px', bottom: '0px' },
 		},
 	},
 };
@@ -130,7 +130,7 @@ const Notification = ({
 	position,
 }) => {
 	const [transitionStyle, setTransitionStyle] = useState({});
-	const animationStyle = useAppContext();
+	const { animationStyle } = useGetAnimation();
 
 	useEffect(() => {
 		if (visible) {

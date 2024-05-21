@@ -12,6 +12,7 @@
     padding: 20px;
     font-size: 18px;
     min-width: 200px;
+    cursor: pointer;
 }
 
 .block {
@@ -26,40 +27,4 @@
 .notificationContainer {
     position: fixed;
     display: flex;
-}
-
-.top-left {
-    top: 10px;
-    left: 10px;
-}
-
-.bottom-left {
-    bottom: 10px;
-    left: 10px;
-}
-
-.bottom-right {
-    bottom: 10px;
-    right: 10px;
-}
-
-.top-right {
-    top: 10px;
-    right: 10px;
-}
-
-.top-left {
-    flex-direction: column;
-}
-
-.bottom-left {
-    flex-direction: column-reverse;
-}
-
-.bottom-right {
-    flex-direction: column-reverse;
-}
-
-.top-right {
-    flex-direction: column;
 }
