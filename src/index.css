@@ -15,14 +15,40 @@
 
 .container {
   display: flex;
+  flex-direction: column;
+  gap:20px;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 100vh;
+}
+
+.notificationBlockArea {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  height: 100vh;
   align-content: center;
-  flex-direction: row;
   margin: 0 auto;
-  width: 75%;
+  width: 80%;
 }
 
+.animationBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  min-width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.radioArea {
+  display: flex;
+  gap: 10px;
+}
+
+.radioButton label {
+  padding: 2px;
+}

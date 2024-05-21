@@ -5,6 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { AiFillWarning } from 'react-icons/ai';
 import { AiFillInfoCircle } from 'react-icons/ai';
 import { AiOutlineMinusCircle } from 'react-icons/ai';
+import { useAppContext } from '../../context';
 
 import './style.css';
 
@@ -15,18 +16,89 @@ const notificationIcon = {
 	info: <AiFillInfoCircle style={{ marginRight: '10px' }} />,
 };
 
-const notificationStyle = {
-	whenVisible: {
-		'top-left': { top: '0px' },
-		'bottom-left': { bottom: '0px' },
-		'top-right': { top: '0px' },
-		'bottom-right': { bottom: '0px' }
+const noticationMountStyle = {
+	animation1: {
+		'top-left': { top: '100vh' },
+		'bottom-left': { bottom: '100vh' },
+		'top-right': { top: '100vh' },
+		'bottom-right': { bottom: '100vh' },
 	},
-	whenNotVisible: {
-		'top-left': { top: '-500px' },
-		'bottom-left': { bottom: '-500px' },
-		'top-right': { top: '-500px' },
-		'bottom-right': { bottom: '-500px' }
+	animation2: {
+		'top-left': { left: '-300px' },
+		'bottom-left': { left: '-300px' },
+		'top-right': { right: '-300px' },
+		'bottom-right': { right: '-300vh' },
+	},
+	animation3: {
+		'top-left': { opacity: 0 },
+		'bottom-left': { opacity: 0 },
+		'top-right': { opacity: 0 },
+		'bottom-right': { opacity: 0 },
+	},
+	animation4: {
+		'top-left': { top: '100vh' },
+		'bottom-left': { bottom: '100vh' },
+		'top-right': { top: '100vh' },
+		'bottom-right': { bottom: '100vh' },
+	},
+};
+
+const notificationStyle = {
+	animation1: {
+		whenVisible: {
+			'top-left': { top: '0px' },
+			'bottom-left': { bottom: '0px' },
+			'top-right': { top: '0px' },
+			'bottom-right': { bottom: '0px' },
+		},
+		whenNotVisible: {
+			'top-left': { top: '-500px' },
+			'bottom-left': { bottom: '-500px' },
+			'top-right': { top: '-500px' },
+			'bottom-right': { bottom: '-500px' },
+		},
+	},
+	animation2: {
+		whenVisible: {
+			'top-left': { left: '10px' },
+			'bottom-left': { left: '10px' },
+			'top-right': { right: '10px' },
+			'bottom-right': { right: '10px' },
+		},
+		whenNotVisible: {
+			'top-left': { left: '-300px' },
+			'bottom-left': { bottom: '-300px' },
+			'top-right': { right: '-300px' },
+			'bottom-right': { right: '-300px' },
+		},
+	},
+	animation3: {
+		whenVisible: {
+			'top-left': { opacity: 1 },
+			'bottom-left': { opacity: 1 },
+			'top-right': { opacity: 1 },
+			'bottom-right': { opacity: 1 },
+		},
+		whenNotVisible: {
+			'top-left': { opacity: 0 },
+			'bottom-left': { opacity: 0 },
+			'top-right': { opacity: 0 },
+			'bottom-right': { opacity: 0 },
+		},
+	},
+	animation4: {
+		whenVisible: {
+			'top-left': { top: '0px' },
+			'bottom-left': { bottom: '0px' },
+			'top-right': { top: '0px' },
+			'bottom-right': { bottom: '0px' },
+		},
+		whenNotVisible: {
+			'top-left': { top: '-500px' },
+			'bottom-left': { bottom: '-500px' },
+			'top-right': { top: '-500px' },
+			'bottom-right': { bottom: '-500px' },
+		},
 	},
 };
 
@@ -58,24 +130,33 @@ const Notification = ({
 	position,
 }) => {
 	const [transitionStyle, setTransitionStyle] = useState({});
+	const animationStyle = useAppContext();
 
 	useEffect(() => {
 		if (visible) {
 			setTimeout(() => {
-				setTransitionStyle(notificationStyle.whenVisible[position]);
+				setTransitionStyle(
+					notificationStyle[animationStyle].whenVisible[position]
+				);
 			}, 50);
 		} else {
-			setTransitionStyle(notificationStyle.whenNotVisible[position]);
+			setTransitionStyle(
+				notificationStyle[animationStyle].whenNotVisible[position]
+			);
 			setTimeout(() => {
 				removeMe(id);
 			}, 1000);
 		}
-	}, [visible, removeMe, id, position]);
+	}, [visible, removeMe, id, position, animationStyle]);
 
 	return (
 		<div
-			className={`notification ${type} ${position}-notification`}
-			style={{ transition: 'all 1s', ...transitionStyle }}
+			className={`notification ${type}`}
+			style={{
+				transition: 'all 1s',
+				...noticationMountStyle[animationStyle][position],
+				...transitionStyle,
+			}}
 		>
 			{/** Icon */}
 			{notificationIcon[type]}
