@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Notification from '../components/notification';
 import { v4 as uuidv4 } from 'uuid';
 
-const useNotificationStack = ({ duration = 5000 } = {}) => {
+const useNotificationStack = ({ position, duration = 5000 } = {}) => {
 	const [notifications, setNotifications] = useState([]);
 
 	const timer = useRef(null);
@@ -50,10 +50,11 @@ const useNotificationStack = ({ duration = 5000 } = {}) => {
 			? notifications.map((notification) => (
 					<Notification
 						key={notification.id}
-						{...notification}
 						duration={duration}
 						onClose={() => onClose(notification.id)}
+						position={position}
 						removeMe={removeMe}
+						{...notification}
 					/>
 			  ))
 			: null,

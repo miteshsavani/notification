@@ -6,7 +6,6 @@
     position: relative;
     font-size: 20px;
     min-width: 250px;
-    top: 100vh;
 }
 
 .closeIcon {
@@ -38,4 +37,20 @@
     left:0;
     background-color: white;
     transition: width 2s;
+}
+
+.top-left-notification {
+    top: 100vh;
+}
+
+.bottom-left-notification {
+    bottom: 100vh;
+}
+
+.top-right-notification {
+    top: 100vh;
+}
+
+.bottom-right-notification {
+    bottom: 100vh;
 }

@@ -1,0 +1,65 @@
+.notificationBlock {
+    margin: 12px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+}
+.button {
+    padding: 20px;
+    font-size: 18px;
+    min-width: 200px;
+}
+
+.block {
+    display: flex;
+    align-items: center;
+    width: 410px;
+    flex-wrap: wrap;
+    gap:10px;
+}
+
+
+.notificationContainer {
+    position: fixed;
+    display: flex;
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+}
+
+.top-right {
+    top: 10px;
+    right: 10px;
+}
+
+.top-left {
+    flex-direction: column;
+}
+
+.bottom-left {
+    flex-direction: column-reverse;
+}
+
+.bottom-right {
+    flex-direction: column-reverse;
+}
+
+.top-right {
+    flex-direction: column;
+}

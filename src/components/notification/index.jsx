@@ -15,6 +15,21 @@ const notificationIcon = {
 	info: <AiFillInfoCircle style={{ marginRight: '10px' }} />,
 };
 
+const notificationStyle = {
+	whenVisible: {
+		'top-left': { top: '0px' },
+		'bottom-left': { bottom: '0px' },
+		'top-right': { top: '0px' },
+		'bottom-right': { bottom: '0px' }
+	},
+	whenNotVisible: {
+		'top-left': { top: '-500px' },
+		'bottom-left': { bottom: '-500px' },
+		'top-right': { top: '-500px' },
+		'bottom-right': { bottom: '-500px' }
+	},
+};
+
 const ProgressBar = ({ duration }) => {
 	const [width, setWidth] = useState(0);
 
@@ -40,26 +55,27 @@ const Notification = ({
 	duration,
 	visible = true,
 	removeMe,
+	position,
 }) => {
-	const [mountStyle, setMountStyle] = useState({});
+	const [transitionStyle, setTransitionStyle] = useState({});
 
 	useEffect(() => {
 		if (visible) {
 			setTimeout(() => {
-				setMountStyle({ top: '0px' });
+				setTransitionStyle(notificationStyle.whenVisible[position]);
 			}, 50);
 		} else {
-			setMountStyle({ top: '-500px' });
+			setTransitionStyle(notificationStyle.whenNotVisible[position]);
 			setTimeout(() => {
 				removeMe(id);
 			}, 1000);
 		}
-	}, [visible, removeMe, id]);
+	}, [visible, removeMe, id, position]);
 
 	return (
 		<div
-			className={`notification ${type}`}
-			style={{ transition: 'all 1s', ...mountStyle }}
+			className={`notification ${type} ${position}-notification`}
+			style={{ transition: 'all 1s', ...transitionStyle }}
 		>
 			{/** Icon */}
 			{notificationIcon[type]}
