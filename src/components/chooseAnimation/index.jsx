@@ -27,7 +27,7 @@ const ChooseAnimation = () => {
 
 	return (
 		<div className="animationBlock">
-			<div>Choose animation style</div>
+			<div className='heading1'>Choose animation style</div>
 			<div className="radioArea">
 				<RadioInput
 					name="animationStyle"

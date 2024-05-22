@@ -6,25 +6,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 999;
 }
 .button {
-    padding: 20px;
-    font-size: 18px;
-    min-width: 200px;
+    padding: 8px;
+    width: 150px;
     cursor: pointer;
 }
 
 .block {
     display: flex;
     align-items: center;
-    width: 410px;
     flex-wrap: wrap;
     gap:10px;
+    justify-content: center;
+    margin: 5px 0px;
 }
 
 
 .notificationContainer {
     position: fixed;
     display: flex;
+    gap:10px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .button {
+        width: 45%;
+        padding: 8px;
+    }
 }

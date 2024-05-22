@@ -1,16 +1,18 @@
 .notification {
-    margin: 15px;
     padding: 10px;
     display: flex;
     align-items: center;
     position: relative;
-    font-size: 20px;
-    min-width: 250px;
+    font-size: 1.5rem;
+    width: fit-content;
+}
+
+.notification-text {
+    margin: 0 5px;
+    line-height: 16px;
 }
 
 .closeIcon {
-    position: absolute;
-    right: 10px;
     cursor: pointer;
 }
 
@@ -39,18 +41,14 @@
     transition: width 2s;
 }
 
-.top-left-notification {
-    top: 100vh;
-}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .notification {
+        padding: 8px;
+        font-size: 1.5rem;
+    }
 
-.bottom-left-notification {
-    bottom: 100vh;
-}
-
-.top-right-notification {
-    top: 100vh;
-}
-
-.bottom-right-notification {
-    bottom: 100vh;
+    .progressBar {
+        height: 2px;
+    }
 }

@@ -10,10 +10,10 @@ import { useGetAnimation } from '../../context';
 import './style.css';
 
 const notificationIcon = {
-	success: <AiOutlineCheck style={{ marginRight: '10px' }} />,
-	error: <AiOutlineMinusCircle style={{ marginRight: '10px' }} />,
-	warning: <AiFillWarning style={{ marginRight: '10px' }} />,
-	info: <AiFillInfoCircle style={{ marginRight: '10px' }} />,
+	success: <AiOutlineCheck />,
+	error: <AiOutlineMinusCircle />,
+	warning: <AiFillWarning />,
+	info: <AiFillInfoCircle />,
 };
 
 const noticationMountStyle = {
@@ -161,7 +161,7 @@ const Notification = ({
 			{/** Icon */}
 			{notificationIcon[type]}
 			{/** Message */}
-			<div>{message}</div>
+			<div className='notification-text'>{message}</div>
 
 			{/** Close button */}
 			<AiOutlineClose className="closeIcon" onClick={onClose} />

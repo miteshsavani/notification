@@ -11,6 +11,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -19,8 +25,8 @@
   gap:20px;
   justify-content: center;
   align-items: center;
-  width: 95%;
-  height: 100vh;
+  width: 1080px;
+  margin: 0 auto;
 }
 
 .notificationBlockArea {
@@ -30,6 +36,45 @@
   flex-wrap: wrap;
   gap: 10px;
   align-content: center;
-  margin: 0 auto;
-  width: 80%;
+  width: 100%;
+}
+
+html {
+  font-size: 12px;
+}
+
+.heading1 {
+  font-size: 2.5rem;
+}
+
+.heading2 {
+  font-size: 1.5rem;
+}
+
+.button, label {
+  font-size: 1.25rem;
+}
+
+.button {
+  color: white;
+  border-color: darkgray;
+  background-color: gray;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #9b9797;
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .container {
+    width: 90%;
+    gap: 10px
+  }
+
+  html {
+    font-size: 8px;
+  }
 }

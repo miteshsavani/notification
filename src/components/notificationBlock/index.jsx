@@ -109,22 +109,22 @@ const NotificationBlock = ({ position }) => {
 			>
 				{notifications}
 			</div>
-			<p>
+			<div className='heading2'>
 				Show Notifications on{' '}
-				{String(position).replace('-', ' ').toLocaleUpperCase()} corner
-			</p>
+				{String(position).replace('-', ' ').toLocaleUpperCase()}
+			</div>
 			<div className="block">
 				<button className="button" onClick={showSuccessMessage}>
-					Show Success
+					Success
 				</button>
 				<button className="button" onClick={showErrorMessage}>
-					Show Error
+					Error
 				</button>
 				<button className="button" onClick={showWarningMessage}>
-					Show Warning
+					Warning
 				</button>
 				<button className="button" onClick={showInfoMessage}>
-					Show Info
+					Info
 				</button>
 			</div>
 		</div>
